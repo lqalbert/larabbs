@@ -35,3 +35,5 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //网站主页，由于自定义设置了主页，不需要默认生成的，删除此条路由
 //Route::get('/home', 'HomeController@index')->name('home');
+//给user注册一个资源路由
+Route::resource('users','UsersController',['only'=>['show','update','edit']]);
