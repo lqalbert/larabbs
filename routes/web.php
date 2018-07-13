@@ -37,3 +37,5 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 //Route::get('/home', 'HomeController@index')->name('home');
 //给user注册一个资源路由
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
+
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
