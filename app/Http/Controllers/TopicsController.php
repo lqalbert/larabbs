@@ -69,13 +69,13 @@ class TopicsController extends Controller
 		return redirect()->to($topic->link())->with('message', '更新成功');
 	}
 
-	public function destroy(Topic $topic)
-	{
-		$this->authorize('destroy', $topic);
-		$topic->delete();
+    public function destroy(Reply $reply)
+    {
+        $this->authorize('destroy', $reply);
+        $reply->delete();
 
-		return redirect()->route('topics.index')->with('message', '删除成功');
-	}
+        return redirect()->to($reply->topic->link())->with('success', '成功删除回复！');
+    }
 
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
     {
