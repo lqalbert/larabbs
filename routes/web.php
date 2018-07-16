@@ -38,7 +38,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 //给user注册一个资源路由
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 //分类路由
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 //上传图片路由
